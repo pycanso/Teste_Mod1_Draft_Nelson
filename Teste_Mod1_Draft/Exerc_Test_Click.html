@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste_Draft</title>
+
+<style>
+body{ background-color: red;}
+div{
+    width: 50%;
+    height: 50%;
+  margin:10% 42%;
+}
+img{ width: 25%;   height: 30%; }
+
+</style>
+
+
+</head>
+<body onload="loading()">
+
+    <div id="div" onclick="mudafotos()">
+
+        <img src="Fig1.png" id="i1" srcset=""><img src="Fig2.png" id="i2" srcset=""><br><br><br><br><br><br>
+
+        <p id="showContador"></p>
+        <p id="stock"></p>
+
+    </div>
+
+    <script>
+        let arrayClick = [];
+        let contador = 0;
+        let stock;
+        let ultimoClick = localStorage.getItem("ultimoClick");
+
+        function mudafotos() {
+
+            if(ultimoClick== null)ultimoClick=0;
+
+            var im1 = document.querySelector('#i1');
+            var im2 = document.querySelector('#i2');
+
+            im1 = document.querySelector('#i1').src = "Fig2.png";
+            im2 = document.querySelector('#i2').src = "Fig1.png";
+
+            if (contador % 10 == 0 && contador <= 100) {
+                alert("O numero " + contador + " é multiplo de 10");
+            } else {
+                if (contador > 100) {
+                    contador = 100;
+                }
+            }
+            document.getElementById("showContador").innerHTML = "Nº de click= " + contador;
+            document.getElementById("stock").innerHTML = "Último click= " + ultimoClick;
+
+            arrayClick.push(contador);
+            localStorage.setItem("clicks", arrayClick);
+            let stock = Number.parseInt(localStorage.getItem("clicks", arrayClick.pop()));
+            //let ultimoClick = stock;
+
+            localStorage.setItem("ultimoClick", stock);
+
+            contador++;
+        }
+        function loading() {
+
+            if (ultimoClick != undefined) {
+                contador = ultimoClick;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
