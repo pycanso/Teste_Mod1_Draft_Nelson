@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Teste_Draft</title>
+    <style>
+        body {
+            background-color: red;
+        }
 
-<style>
-body{ background-color: red;}
-div{
-    width: 50%;
-    height: 50%;
-  margin:10% 42%;
-}
-img{ width: 25%;   height: 30%; }
+        div {
+            width: 50%;
+            height: 50%;
+            margin: 10% 42%;
+        }
 
-</style>
-
-
+        img {
+            width: 25%;
+            height: 30%;
+        }
+    </style>
 </head>
+
 <body onload="loading()">
 
     <div id="div" onclick="mudafotos()">
@@ -35,7 +40,7 @@ img{ width: 25%;   height: 30%; }
 
         function mudafotos() {
 
-            if(ultimoClick== null)ultimoClick=0;
+            if (ultimoClick == null) ultimoClick = 0;
 
             var im1 = document.querySelector('#i1');
             var im2 = document.querySelector('#i2');
